@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>
+      Tango Synergy Committee SurveyBuilder
+    </title>
+    <script type="text/javascript" src="assets/js/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap-theme.min.css">
+    <link type="application/json" href="/survey/survey-data.json">
+    <style>
+    select,div {display:block;}
+    form>select+div, form>div+select, form>div+div{margin-top:1em;}
+    
+    form {width: 100%; border:solid 1px #ddd;}
+    .form-group {padding: 1em 0 0; border-bottom: double 3px #ddd;}
+    
+    .sect-point { position: relative; }
+    .sect-point:last-child { padding-bottom: 4em; }
+    .point-wrapper { position: absolute; top: 1em; vertical-align: middle;}
+    
+    .scale>.point-wrapper>label {
+      display:block; float:left; width:1.5em; text-align: center; padding: 5px 0;
+    }
+    .scale.unselected>.point-wrapper>label {background-color:#eee; border:solid 1px #ddd; border-right: 0px solid; color: #222;}
+    .scale>.point-wrapper>label {margin-bottom: 0; background-color:#f9f9f9; border:solid 1px #ddd; border-right: 0px solid; color: #666; transition: background-color 0.5s;}
+    .scale.unselected {background-color:white;}
+    .scale { background-color: #ddd; transition: background-color 1s;}
+    .scale>.point-wrapper>label:hover {
+      background-color: lightgreen;
+      cursor: pointer;
+      transition: background-color 0s;
+    }
+    .hidden { display: block !important; visibility: visible; position: absolute; left: -2000px;}
+    /* margins */
+    .sect-point, h4, h5, h6, input#submit { padding: 0 0.5em; }
+
+    .scale>.point-wrapper>.selected,
+    .scale>.point-wrapper>.selected:hover {color: white; background-color: green;}
+    .scale.unselected>.point-wrapper>.selected,
+    .scale.unselected>.point-wrapper>.selected:hover {color: black; background-color: #fff;}
+
+    .scale>.point-wrapper>label.ten{border-right :solid 1px #ddd; }
+    .scale>p.question {margin-left: 16em; padding: 6px 0;}
+    .subquestion, .sect-point { border-bottom: solid 1px #ddd; padding: 1em;}
+    .scale .other-margin {margin-left: 16em;}
+    h6 { text-transform: uppercase;}
+    h5 { font-size: 1.5em; }
+    p.question {margin: 0;}
+    .scale span.question.input-group-addon {
+      min-width: 0;
+      text-align: center;
+    }
+    span.question.input-group-addon {
+          min-width: 20em;
+          text-align: left;
+      }
+        
+    aside.container {
+      padding: 1em;
+      border: solid 1px #ccc;
+    }  
+    .meta-name { font-weight: bold; display: inline-block; width: 8em; text-transform: uppercase;}
+    .point-wrapper:focus, input.other-text:focus {outline: solid 5px lightblue;}
+    .button-reset { float: right; margin-right: 1em; background-color: lightblue;}
+    </style>
+  </head>
+  <body>
+    <div class="container">
+    <header>
+      <h1>Tango Synergy Base Survey</h1>
+      <p>Thanks for participating in the Tango Synergy Web Development Survey! </p>
+      <p>The web developer wants to know more about the considerations and operational objectives of the organisation for the next 12 months.</p>
+      <p>This survey to assist in the creation of a digital infrastructure plan for <strong>Tango Synergy</strong>.</p> 
+    </header>
+    <script src="./assets/js/formbuilder.js"></script>
+    </div>
+  </body>
+</html>

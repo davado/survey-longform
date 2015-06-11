@@ -1,0 +1,460 @@
+{
+    "sections": {
+        "section-1": {
+            "points": [
+                {
+                    "point": "Increase the number of women in Tango",
+                    "type": "scale"
+                },
+                {
+                    "point": "Increase the number of men in Tango",
+                    "type": "scale"
+                },
+                {
+                    "point": "There does not need to be any gender bias with regards to the marketing of tango",
+                    "type": "scale"
+                }
+            ],
+            "question": "How important are the following to the growth objectives to Tango Synergy?",
+            "supertitle": "Marketing : Gender"
+        },
+        "section-2": {
+            "question": "On a scale of 1 to 10, how important are the following growth objectives of Tango Synergy in the next 12 months?",
+            "supertitle": "Objectives",
+            "points": [
+                {
+                    "point": "Increase the number of tango dancers in Sydney",
+                    "type": "scale"
+                },
+                {
+                    "point": "Increase the number of Tango Synergy members",
+                    "type": "scale"
+                },
+                {
+                    "point": "Increase Tango Synergy membership renewals",
+                    "type": "scale"
+                },
+                {
+                    "point": "Other",
+                    "type": "scale",
+                    "other": "Please specify and score out of ten."
+                }
+            ]
+        },
+        "section-3": {
+
+            "supertitle": "Marketing : Generational Groups",
+            "question": "With consideration to marketing tango, weight the following groups by their importance",
+            "points": [
+              {
+                  "point": "Millenials (around 21 years old)",
+                  "type": "scale"
+              },
+                {
+                    "point": "Generation Y (around 28 years old)",
+                    "type": "scale"
+                },
+                {
+                    "point": "Generation X (around 41 years old)",
+                    "type": "scale"
+                },
+                {
+                    "point": "Baby Boomers (around 58 years old)",
+                    "type": "scale"
+                },
+                {
+                    "point": "Other",
+                    "type": "scale",
+                    "other": "Please specify and score out of ten"
+                }
+            ]
+        },
+        "section-4": {
+            "points": [
+                {
+                    "point": "Tango Synergy members, milonga participation",
+                    "type": "scale"
+                },
+                {
+                    "point": "Tango Synergy members, volunteer work (event organisers, assistants, DJs)",
+                    "type": "scale"
+                },
+                {
+                    "point": "Tango Synergy committee members",
+                    "type": "scale"
+                },
+                {
+                    "point": "Tango teachers",
+                    "type": "scale"
+                },
+                {
+                    "point": "Tango event hosts and organisers",
+                    "type": "scale"
+                },
+                {
+                    "point": "Venue owners and managers",
+                    "type": "scale"
+                },
+                {
+                    "point": "Other",
+                    "type": "scale",
+                    "other": "Please specify and score out of ten."
+                }
+            ],
+            "question": "How well utilised are the current human resources available to the organisation?",
+            "supertitle": "Organisational Resources"
+        },
+        "section-5": {
+            "points": [
+                {
+                    "point": "Attract new dancers to attend beginners classes",
+                    "type": "scale"
+                },
+                {
+                    "point": "Attract new dancers of other styles of dance to beginner classes",
+                    "type": "scale"
+                },
+                {
+                    "point": "Educate new dancers about the music and culture of tango",
+                    "type": "scale"
+                },
+                {
+                    "point": "Inform new dancers about the national and international opportunities of dancing tango",
+                    "type": "scale"
+                },
+                {
+                    "point": "Other",
+                    "type": "scale",
+                    "other": "Please specify and score out of ten."
+                }
+            ],
+            "question": "New Dancers: How important are these activities to the growth objectives of Tango Synergy?",
+            "supertitle": "Communication and Marketing"
+        },
+        "section-6": {
+            "points": [
+                {
+                    "point": "Encourage beginners to attend TS practicas and milongas?",
+                    "type": "scale"
+                },
+                {
+                    "point": "Encourage beginners to attend Non-TS practicas and milongas",
+                    "type": "scale"
+                },
+                {
+                    "point": "Encourage beginners to undertake continuing skill development",
+                    "type": "scale"
+                },
+                {
+                    "point": "Inform dancers about the travel and learning opportunities",
+                    "type": "scale"
+                },
+                {
+                    "point": "Other",
+                    "type": "scale",
+                    "other": "Please specify and score out of ten."
+                }
+            ],
+            "question": "Beginners: How important are these activities to the growth objectives of Tango Synergy?",
+            "supertitle": "Communication and Marketing"
+        },
+        "section-7": {
+            "points": [
+                {
+                    "point": "Encourage experienced dancers to attend TS practicas and milongas",
+                    "type": "scale"
+                },
+                {
+                    "point": "Encourage experienced dancers to attend non-TS practicas and milongas",
+                    "type": "scale"
+                },
+                {
+                    "point": "Encourage experienced dancers to undertake continuing skill development",
+                    "type": "scale"
+                },
+                {
+                    "point": "Other",
+                    "type": "scale",
+                    "other": "Please specify and score out of ten."
+                }
+            ],
+            "question": "Experienced dancers: How important are these activities to the growth objectives of Tango Synergy?",
+            "supertitle": "Communication and Marketing"
+        },
+        "section-8": {
+            "supertitle": "Objectives and Activities",
+            "question": "How important are each of these activities?",
+            "points": [
+                {
+                    "point": "Support the technical instruction of tango dancers by tango teachers",
+                    "type": "scale"
+                },
+                {
+                    "point": "Support the sharing of knowledge between tango students",
+                    "type" : "scale"
+                },
+                {
+                    "point": "Support the musical development of tango dancers",
+                    "type" : "scale"
+                },
+                  {
+                    "point": "Support the development of new tango DJs",
+                    "type" : "scale"
+                },
+                {
+                    "point": "Support public awareness activities about tango in Sydney",
+                    "type" : "scale"
+                },
+                {
+                    "point": "Other",
+                    "type": "scale",
+                    "other": "Please specify and score out of ten."
+                }
+            ]
+        },
+        "section-9": {
+            "supertitle": "Online Services : Website",
+            "question": "The website should include the following components:",
+            "points": [
+                {
+                    "point": "Top down information portal about tango in Sydney",
+                    "type": "scale"
+                },
+                {
+                    "point": "Knowledge sharing platform for tango people to share information about community activities",
+                    "type": "scale"
+                },
+                {
+                    "point": "A single point of entry for new dancers to learn about starting tango",
+                    "type": "scale"
+                },
+                {
+                    "point": "A knowledge-base about tango travel activities, with contributions by TS members",
+                    "type": "scale"
+                },
+                {
+                    "point": "A simplified online membership signup and membership renewal process",
+                    "type": "scale"
+                },
+                {
+                    "point": "Other",
+                    "type": "scale",
+                    "other": "Please specify and score out of ten."
+                }
+            ]
+        },
+        "section-10": {
+            "supertitle": "Support Activities",
+            "question": "What are some activities that Tango Synergy should undertake to meet its growth objectives?",
+            "points": [
+                {
+                    "point": "Help potential new dancers find local tango instructors",
+                    "type": "scale"
+                },
+                {
+                    "point": "Help local tango instructors find new students",
+                    "type": "scale"
+                },
+                {
+                    "point": "Help new dancers and beginners find local tango events",
+                    "type": "scale"
+                },
+                {
+                    "point": "Help dancers get into contact with visiting international tango instructors?",
+                    "type": "scale"
+                },
+                {
+                    "point": "Help dancers discover more information about national and international tango events?",
+                    "type": "scale"
+                },
+                {
+                    "point": "Other",
+                    "type": "scale",
+                    "other": "Please specify and score out of ten."
+                }
+            ]
+        },
+        "section-11": {
+            "supertitle": "Operational Objectives",
+            "question": "Score the following: Tango Synergy wants to...",
+            "points": [
+                {
+                    "point": "Provide communication resources for TS members",
+                    "type": "scale"
+                },
+                {
+                    "point": "Provide material resources for TS members",
+                    "type": "scale"
+                },
+                {
+                    "point": "Provide communication resources for all of Sydney tango community",
+                    "type": "scale"
+                },
+                {
+                    "point": "Provide material resources for all of Sydney tango community",
+                    "type": "scale"
+                },
+                {
+                    "point": "Provide communication resources towards promoting tango to non-tango people",
+                    "type": "scale"
+                },
+                {
+                    "point": "Provide material resources towards promoting tango to non-tango people",
+                    "type": "scale"
+                },
+                {
+                    "point": "Other",
+                    "type": "scale",
+                    "other": "Please specify and score out of ten."
+                }
+            ]
+        },
+        "section-12": {
+             "supertitle": "Activities: Information for Tango Students",
+             "question": "Score according to the importance of these TS activities",
+             "points": [
+                 {
+                     "point": "Provide information to students about group classes taught by local instructors.",
+                     "type": "scale"
+                 },
+                 {
+                     "point": "Provide information to students about group classes taught by international instructors",
+                     "type": "scale"
+                 },
+                 {
+                     "point": "Provide information to students about private classes, local and international instructors.",
+                     "type": "scale"
+                 },
+                 {
+                     "point": "Provide information to students about practicas",
+                     "type": "scale"
+                 },
+                 {
+                     "point": "Provide information to students about Tango Synergy hosted practicas",
+                     "type": "scale"
+                 },
+                 {
+                     "point": "Provide information to students about milonga events",
+                     "type": "scale"
+                 },
+                 {
+                     "point": "Provide information to students about Tango Synergy hosted milongas",
+                     "type": "scale"
+                 },
+                 {
+                     "point": "Provide information to students about the codes and etiquette of tango",
+                     "type": "scale"
+                 },
+                 {
+                     "point": "Provide information to students about national and international tango travel",
+                     "type": "scale"
+                 },
+                {
+                    "point": "Other",
+                    "type": "scale",
+                    "other": "Please specify and score out of ten."
+                }
+             ]
+         },
+         "section-13": {
+              "supertitle": "Communication channels",
+              "question": "What is YOUR preferred method of receiving Tango information updates",
+              "points": [
+                    {
+                      "point": "Visiting a website",
+                      "type": "scale"
+                    },
+                    {
+                      "point": "Receiving an email newsletter",
+                      "type": "scale"
+                    },
+                    {
+                      "point": "Receiving information via word of mouth",
+                      "type": "scale"
+                    },
+                    {
+                      "point": "Visiting a Facebook page",
+                      "type": "scale"
+                    },
+                    {
+                      "point": "Reading posts by other people on your Facebook feed",
+                      "type": "scale"
+                    },
+                    {
+                      "point": "Receiving event invitations from within Facebook",
+                      "type": "scale"
+                    },
+                    {
+                        "point": "SMS text message",
+                        "type": "scale"
+                    },
+                    {
+                        "point": "Other",
+                        "type": "scale",
+                        "other": "Please specify and score out of ten."
+                    }
+              ]
+          },
+          "section-14": {
+               "supertitle": "Comparative Marketing",
+               "question": "What are the comparative benefits of tango...",
+               "points": [
+                   {
+                       "point": "...compared to Salsa?",
+                       "type" : "textarea",
+                       "other": "Answer here:"
+                   },
+                   {
+                       "point": "...compared to other Latin Dances?",
+                       "type" : "textarea",
+                       "other": "Answer here."
+                   },
+                   {
+                       "point": "...compared to Ballroom Dancing?",
+                       "type" : "text",
+                       "other": "Answer here."
+                   },
+                   {
+                       "point": "...compared to Team Sports?",
+                       "type" : "text",
+                       "other": "Answer here."
+                   },
+                   {
+                       "point": "...compared to other activities?",
+                       "type" : "text",
+                       "other": "Answer here."
+                   }
+               ]
+           }
+    },
+    
+    "title":    "Tango Synergy Survey",
+    "version":  "0.1.0" ,
+    "date":     "2015-05-27",
+    "author":   "David Wong",
+    "id":       "tango-synergy-survey",
+
+
+      "_comment": {
+  
+         "section-x": {
+              "supertitle": "Supertitle",
+              "question": "Question",
+              "points": [
+                  {
+                      "point": "Question asked?",
+                      "type": "scale"
+                  },
+                  {
+                      "point": "Question asked?",
+                      "type": "scale"
+                  },
+                  {
+                      "point": "Question asked?",
+                      "type": "scale"
+                  }
+              ]
+          }
+          
+      }
+}

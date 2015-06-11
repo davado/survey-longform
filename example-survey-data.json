@@ -1,0 +1,14 @@
+{
+  "survey":{
+    "title": "Tango Synergy Survey",
+    "datetime":"",
+    "version": "0.0.1",
+    "questions":{
+      "q1":{
+        "label": "What is the <b>question</b> with basic <i>formatting</i>?",
+        "inputtype": "radio",
+        ""
+      }
+    } 
+  }
+}
