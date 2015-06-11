@@ -19,8 +19,8 @@
 
 // app configuration settings
 var appConfig = {
-    saveFile: "/survey/savejson.php",
-    questionsManifest: "/survey/survey-data.json"
+    saveFile: "/savejson.php",
+    questionsManifest: "/assets/data/survey-data.json"
 };
 
 var model = {
