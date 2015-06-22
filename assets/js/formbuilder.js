@@ -38,7 +38,6 @@ model.saveData = function(obj) {
       data: {regData: JSON.stringify(obj)},
       success: function(data){
           console.log('Register saved to server file.');
-        //  console.log(JSON.stringify(obj));
       },
       error: function(e){
           console.log(e.message);
@@ -47,17 +46,32 @@ model.saveData = function(obj) {
 
 };
 
-model.retrieveData = function(url, func) {
-    
+model.retrieveData = function(url, func, func2, func3) {
+
     $.ajax({
         dataType: "json",
         type: "GET",
         url: url,
         success: function(data, obj) {
             func(data);
+            func2(func3);
         },
-        error: function(e) {
-            console.log(e.message);
+        error: function(jqXHR, exception) {
+            if (jqXHR.status === 0) {
+                console.log('Not connect.\n Verify Network.');
+            } else if (jqXHR.status == 404) {
+                console.log('Requested page not found. [404]');
+            } else if (jqXHR.status == 500) {
+                console.log('Internal Server Error [500].');
+            } else if (exception === 'parsererror') {
+                console.log('Requested JSON parse failed.');
+            } else if (exception === 'timeout') {
+                console.log('Time out error.');
+            } else if (exception === 'abort') {
+                console.log('Ajax request aborted.');
+            } else {
+                console.log('Uncaught Error.\n' + jqXHR.responseText);
+            }
         }
     });
 };
@@ -78,13 +92,14 @@ model.setRegister = function( jsonObj ) {
 
 model.setManifest = function( obj ) {
 
-    function test(obj) {
-        self = this;
-        model.formElements = obj;
-        console.log( "set:", model.formElements );
+    function setForm(obj) {
+        if( model.formElements !== obj ) {
+            model.formElements = obj;
+            console.log( "set:", model.formElements );
+        }
     }
     
-    test( obj );
+    setForm( obj );
 
 };
 
@@ -114,7 +129,61 @@ model.savePoint = function(id, val) {
     } 
     id = getName(id);
     localStorage[id] = val;
-    console.log(id, localStorage[id]);
+    console.log("localStorage, set", id, "value:", localStorage[id]);
+};
+
+model.removePoint = function(id) {
+
+    function getName(id) {
+        var str; 
+        var key = "";
+        
+        str = id.split("-");
+        for (var p = 0; p < str.length-1; p++) {
+            key += str[p];
+            if (p < str.length-2) {
+                key += "-";
+            }
+        }
+            console.log(key, str);
+        return key;
+        
+    }
+    
+    if( model.hasLocalStorage ) {
+        id = getName(id);
+        localStorage.removeItem = id;
+        console.log( "localStorage.removeItem:", id );
+    } else {
+        return false;
+    }
+};
+
+model.removeCheck = function(id) {
+
+    function getName(id) {
+        var str; 
+        var key = "";
+        
+        str = id.split("-");
+        for (var p = 0; p < str.length-1; p++) {
+            key += str[p];
+            if (p < str.length-2) {
+                key += "-";
+            }
+        }
+            console.log(key, str);
+        return key;
+        
+    }
+    
+    if( model.hasLocalStorage ) {
+        id = getName(id);
+        localStorage.removeItem = id;
+        console.log( "localStorage.removeItem:", id );
+    } else {
+        return false;
+    }
 };
 
 model.restorePointFromLocal = function( id ){
@@ -168,7 +237,8 @@ build = {
 build.form = function(obj){
     var container = document.createElement("div");
     container.setAttribute("class", "container");
-    var submit, meta;
+    var submit, meta, preface;
+    
     var form = document.createElement("form");
     var attr = {id:obj.id, name:obj.id, action:"#", method:"post"};
     if ( obj.id !== null || obj.id !== undefined ){
@@ -176,7 +246,29 @@ build.form = function(obj){
             form.setAttribute(key, attr[key] );
         }
     }
+    
+    // get title
+    if( obj.hasOwnProperty("title") ) {
+        if( document.getElementById('main-heading') ) {
+            heading = document.getElementById('main-heading');
+            if ( obj.title.length > 0 ){
+                heading.innerHTML = obj.title;
+            }
+        }
+    }
+    
+    // get preface
+    
+    if( obj.hasOwnProperty("preface") ) {
+        preface = build.preface(obj.preface);
 
+        if ( document.getElementById('preface') ) {
+            preface_container = document.getElementById('preface');
+            preface_container.appendChild(preface);
+        } else {
+            container.appendChild(preface);
+        }
+    }
     // get questions
     if (obj.hasOwnProperty("sections")){ 
         for (var section in obj.sections) {
@@ -320,7 +412,7 @@ build.points = function( arr, number ){
                         }
                         selected = ( j === k );
                         
-                        input = build.input( "radio", inputName, id, j, "hidden", selected );
+                        input = build.input( "radio", inputName, id, j, "hidden", selected, false );
                         inputs.push( input );
                         
                         label = build.label( id, j, selected );
@@ -328,13 +420,43 @@ build.points = function( arr, number ){
                     }
                 } else if ( arr[i][key] === "textarea" ) {
                     textType = "textarea";
+                } else if ( arr[i][key] === "radio" || arr[i][key] === "multi" ) {
+                    pointClass = point.getAttribute("class") + " "+arr[i][key];
+                    point.setAttribute("class", pointClass );
+                    inputs = [];
+                    labels = [];
+                    
+                    if (arr[i].selection.length > 0){
+                        for ( var m = 0; m < arr[i].selection.length; m++) {
+                            //copy above...
+                            inputName = "p"+number+"-"+(i+1);
+                            id = inputName+"-"+m;
+                            // check if set in localStorage
+                            if (model.hasLocalStorage && parseInt(localStorage[inputName]) !== null){
+                                k = parseInt( localStorage[inputName] ) || null;
+                            }
+                            selected = ( m === k );
+                            classes = (arr[i][key] === "multi") ? "hidden multiple" : "hidden";
+                            
+                            input = build.input( "checkbox", inputName, id, m, classes, selected, true );
+                            inputs.push( input );
+                            
+                            label = build.label(id, arr[i].selection[m], selected );
+                            labels.push(label);
+                        }
+                    }
+
+                } else {
+                    
                 }
                 
             } else if (key === "point") {
                 question = document.createElement("p");
                 question.setAttribute("class","question");
-                questionTextNode = document.createTextNode( arr[i][key] );
-                question.appendChild(questionTextNode);
+                rawQuestion = arr[i][key];
+                //questionTextNode = document.createTextNode( rawQuestion );
+                // question.appendChild(questionTextNode);
+                question.innerHTML = rawQuestion;
 
             } else if (key === "other") {
                 otherDescription = (arr[i].point) ? arr[i].point : "text";
@@ -376,8 +498,8 @@ build.points = function( arr, number ){
     return points;
 };
 
-build.input = function(type, name, id, value, className, checked) {
-    var attr = {type: type, name: inputName, id: id, value: value, class: className  };
+build.input = function(type, name, id, value, className, checked, multiple) {
+    var attr = {type: type, name: inputName, id: id, value: value, class: className, multiple: multiple};
     var input = document.createElement("input");
     for (var key in attr) {
         input.setAttribute(key, attr[key]);
@@ -406,8 +528,19 @@ build.label = function(id, value, selected){
     return label;
 };
 
+build.preface = function(obj) {
+    var preface = document.createElement("div");
+    preface.setAttribute("class", "preface");
+    for (var i = 0; i < obj.length ; i++ ) {
+        p = document.createElement("p");
+        p.innerHTML = obj[i];
+        preface.appendChild(p);
+    }
+    return preface;
+};
+
 build.meta = function(obj){
-    var meta = document.createElement("aside");
+    var meta = document.createElement("div");
     meta.setAttribute("class", "container");
     var allowed = {"title": true, "version": true, "date": true, "author": true};
     var line, text;
@@ -463,7 +596,15 @@ build.resetQuestion = function( section_id ) {
             input = arrayOfInputs[z];
             if ( input.checked ) {
                 input.setAttribute("checked", false);
-                localStorage.removeItem( input.getAttribute("name") );
+                
+                if(input.getAttribute("type") === "checkbox") {
+                    model.removeCheck( input.getAttribute("id") );
+                
+                } else {
+                    model.removePoint( input.getAttribute("name") );
+                
+                }
+                
                 $("#"+input.getAttribute("id")+"-label").removeClass("selected");
             }
         }
@@ -480,7 +621,7 @@ build.resetQuestion = function( section_id ) {
     if ( textResponse.length > 0 ) {
         for ( var q = 0; q < textResponse.length ; q++ ) {
             // remove item from localStorage
-            localStorage.removeItem( textResponse[q].getAttribute("name") );
+            model.removeItem( textResponse[q].getAttribute("name") );
             // remove value from element
             textResponse[q].value = "";
             
@@ -549,29 +690,50 @@ build.objectAvailable = function(obj) {
 };
 var timer = 0;
 
+var update = {};
+
+update.select = function(event) {
+    var self = this;
+    var target = event.target;
+    // model.savePoint($(this).for, $("input#"+this.id).value);
+    $(target).parent().parent().removeClass('unselected');
+    $(target).siblings().removeClass('selected');
+    $(target).parent().children().removeClass("default-selected");
+    $(target).addClass('selected');
+};
+
 build.initialize = function(callback) {
 
         if (! build.objectAvailable( model.getManifest() ) ) {
+            // console.log( "build ObjectAvailable says model is not available, try to load manifest");
+            model.retrieveData( appConfig.questionsManifest, model.setManifest, afterInit, build.resumeSurvey );
+            
+/*
 
-            model.retrieveData( appConfig.questionsManifest, model.setManifest );
             if( timer < 6 ) {
                 setTimeout( function() {
                     build.initialize( callback );
-                }, 200+(500*timer) );
+                }, 500+(500*timer) );
             }
             timer++;
 
+*/
+
         } else {
 
+/*
             if( callback && typeof callback === "function" ) {
                 callback();
-            }else{
+            } else {
                 console.log("initialize: 'callback' is not a function");
             }
+*/
             
         }
 
 };
+
+
 
 var afterInit = function(callback) {
 
@@ -591,23 +753,24 @@ var afterInit = function(callback) {
     console.log("AfterInit: add form behaviours.");
     
     $("label").click( function(e){
-
-        // model.savePoint($(this).for, $("input#"+this.id).value);
-        $(this).parent().parent().removeClass('unselected');
-        $(this).siblings().removeClass('selected');
-        $(this).parent().children().removeClass("default-selected");
-        $(this).addClass('selected');
+        update.select(e);
     });
     
     $("input").change( function(e){
-        model.savePoint(e.target.id, e.target.value );
+        if( $(this).attr("type") === "checkbox" && $(this).attr("multiple") === "true") {
+            if( $this.checked ) {
+                
+                model.savePoint(e.target.id+"-multiple", e.target.value);
+            }
+        } else {
+            model.savePoint(e.target.id, e.target.value );
+        }
         
     });
     
     $("button.reset-question").click( function(e) {
         var section = e.target.parentElement.id;
-        //  console.log( e );
-        
+
         if ( section ) {
             build.resetQuestion( section );
         }
@@ -615,7 +778,6 @@ var afterInit = function(callback) {
     
     $(window).keyup( function(e) {
         
-        // console.log(e);
         if (e.target.className === "point-wrapper" || e.target.className === "other-text" ) {
         
             if (e.target.className === "point-wrapper") {
@@ -668,7 +830,7 @@ var afterInit = function(callback) {
 
 build.resumeSurvey = function() {
     var key, val, id, node, label, arr;
-    
+    console.log("Called: build.resumeSurvey");
     for ( key in localStorage ) {
 
         arr = key.split("-");
@@ -708,7 +870,7 @@ build.resumeSurvey = function() {
 };
 
 $( function(){
-    build.initialize(afterInit);
-    build.initialize(build.resumeSurvey);
-    //afterInit();
+    build.initialize();
+    // build.initialize( afterInit );
+    // build.initialize( build.resumeSurvey );
 });
