@@ -510,15 +510,25 @@
            
     },
     
-    "title":    "Tango Synergy Survey",
-    "version":  "0.2.1" ,
-    "date":     "2015-06-21",
+    "title":    "Survey Builder: Javascript Demo",
+    "version":  "0.1.0" ,
+    "date":     "2015-06-22",
     "author":   "David Wong",
-    "id":       "tango-synergy-survey",
+    "id":       "survey-demo",
     "preface":  [
-        "Thanks for participating in the Tango Synergy Web Development Survey!",
-        "The web developer wants to know more about the considerations and operational objectives of the organisation for the next 12 months.",
-        "This survey to assist in the creation of a digital infrastructure plan for <strong>Tango Synergy</strong>."
+        "This survey is build using Javascript. We use JS to generate a survey based on a JSON file.",
+        "<strong>This toy is built with:</strong><br /> -- Javascript, jQuery, Bootstrap, HTML5, CSS3.<br />",
+        "<strong>Objectives:</strong><br />Create a survey form with title, preface, sections, questions and points created from a JSON configuration file.",
+        "<strong>Tab through the options:</strong><br /><strong>TAB</strong> through each option, using keys <strong>1-to-0</strong> to select the option.",
+        "<strong>Mobile Devices:</strong><br />Use this form on a phone or tablet.",
+        "<strong>Persistent Storage:</strong><br />Survey uses localStorage to save selections and text. Choose a few options and refresh the browser to check.",
+        "<strong>Bootstrap framework:</strong><br />Using the basic furniture within Bootstrap.",
+        "<strong>Project Status:</strong><br />Way Incomplete. <br /> -- Front end currently being modified, adding support for extra response-options, including multiple-answer, textual radio buttons, variable size textarea.<br /> -- Backend database needs creating.<br /> -- Backend database web form and response overview to be created.<br /> -- Bad JSON makes baby cry.",
+        "<hr><br />",
+        "<strong>Introduction to the Survey</strong>",
+        "Thanks for taking part in the Survey-Builder Demo survey!",
+        "This form can be used in your browser on Desktop, Tablet or Mobile phone.",
+        "Enjoy!"
     ],
     "instructions":  [
         "You can click on the number inputs or use the <strong>TAB key</strong> to shuffle through each question.",
