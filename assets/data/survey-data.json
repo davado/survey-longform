@@ -15,10 +15,12 @@
                     "type": "scale"
                 }
             ],
+            "modified": "2015-05-27",
             "question": "How important are the following to the growth objectives to Tango Synergy?",
             "supertitle": "Marketing : Gender"
         },
         "section-2": {
+            "modified": "2015-05-27",
             "question": "On a scale of 1 to 10, how important are the following growth objectives of Tango Synergy in the next 12 months?",
             "supertitle": "Objectives",
             "points": [
@@ -42,7 +44,7 @@
             ]
         },
         "section-3": {
-
+            "modified": "2015-05-27",
             "supertitle": "Marketing : Generational Groups",
             "question": "With consideration to marketing tango, weight the following groups by their importance",
             "points": [
@@ -101,6 +103,7 @@
                     "other": "Please specify and score out of ten."
                 }
             ],
+            "modified": "2015-05-27",
             "question": "How well utilised are the current human resources available to the organisation?",
             "supertitle": "Organisational Resources"
         },
@@ -128,6 +131,7 @@
                     "other": "Please specify and score out of ten."
                 }
             ],
+            "modified": "2015-05-27",
             "question": "New Dancers: How important are these activities to the growth objectives of Tango Synergy?",
             "supertitle": "Communication and Marketing"
         },
@@ -155,6 +159,7 @@
                     "other": "Please specify and score out of ten."
                 }
             ],
+            "modified": "2015-05-27",
             "question": "Beginners: How important are these activities to the growth objectives of Tango Synergy?",
             "supertitle": "Communication and Marketing"
         },
@@ -178,10 +183,12 @@
                     "other": "Please specify and score out of ten."
                 }
             ],
+            "modified": "2015-05-27",
             "question": "Experienced dancers: How important are these activities to the growth objectives of Tango Synergy?",
             "supertitle": "Communication and Marketing"
         },
         "section-8": {
+            "modified": "2015-05-27",
             "supertitle": "Objectives and Activities",
             "question": "How important are each of these activities?",
             "points": [
@@ -213,6 +220,7 @@
             ]
         },
         "section-9": {
+            "modified": "2015-05-27",
             "supertitle": "Online Services : Website",
             "question": "The website should include the following components:",
             "points": [
@@ -244,6 +252,7 @@
             ]
         },
         "section-10": {
+            "modified": "2015-05-27",
             "supertitle": "Support Activities",
             "question": "What are some activities that Tango Synergy should undertake to meet its growth objectives?",
             "points": [
@@ -275,6 +284,7 @@
             ]
         },
         "section-11": {
+            "modified": "2015-05-27",
             "supertitle": "Operational Objectives",
             "question": "Score the following: Tango Synergy wants to...",
             "points": [
@@ -310,6 +320,7 @@
             ]
         },
         "section-12": {
+            "modified": "2015-05-27",
              "supertitle": "Activities: Information for Tango Students",
              "question": "Score according to the importance of these TS activities",
              "points": [
@@ -357,6 +368,7 @@
              ]
          },
          "section-13": {
+             "modified": "2015-05-27",
               "supertitle": "Communication channels",
               "question": "What is YOUR preferred method of receiving Tango information updates",
               "points": [
@@ -396,6 +408,7 @@
               ]
           },
           "section-14": {
+               "modified": "2015-05-27",
                "supertitle": "Comparative Marketing",
                "question": "What are the comparative benefits of tango...",
                "points": [
@@ -425,19 +438,99 @@
                        "other": "Answer here."
                    }
                ]
+           },
+           "section-15": {
+               "modified": "2015-06-15",
+                "supertitle": "Internet Usage Habits",
+                "question": "How often do you spend time on the internet?",
+                "points": [
+                    {
+                        "point": "On average, select how many hours do you use the internet, <strong>per day</strong>.",
+                        "type": "scale"
+                    },
+                    {
+                        "point": "On average, how many times do you check <strong>Facebook</strong> per day?",
+                        "type": "scale"
+                    },
+                    {
+                        "point": "Other Question",
+                        "type": "scale"
+                    }
+                ]
+           },
+           "section-16": {
+               "modified": "2015-06-15",
+                "supertitle": "Internet Usage: Services",
+                "question": "What kind of internet services to do you use?",
+                "points": [
+                    {
+                        "point": "MUSIC: Do you <strong>listen to music</strong> using:",
+                        "type": "multi",
+                        "selection": ["Facebook", "YouTube", "Spotify", "iTunes", "CD/DVD" ]
+                    },
+                    {
+                        "point": "MUSIC: If you use Spotify, do you listen to tango playlists created by other people?",
+                        "type": "radio",
+                        "selection": ["Yes", "No", "Maybe", "I Don't Know"]
+                    },
+                    {
+                        "point": "VIDEO: Do you watch performance videos on YouTube?",
+                        "type": "radio",
+                        "selection": ["Rarely", "Sometimes", "All The Time"]
+                    },
+                    {
+                        "point": "PHOTOS: Are you interested in viewing <strong>photos</strong> of local tango events?",
+                        "type": "radio",
+                        "selection": ["Yes", "No", "Maybe"]
+                    }
+                ]
+           },
+           "section-17": {
+               "modified": "2015-06-21",
+                "supertitle": "Internet Connected Devices",
+                "question": "What kind of internet devices do you use?",
+                "points": [
+                    {
+                        "point": "Smartphone: Do you use your phone to:",
+                        "type": "multi",
+                        "selection": ["Don't use a smartphone", "Facebook", "Watch Video", "Listen To Music", "Read about Tango" ]
+                    },
+                    {
+                        "point": "Do you use your tablet to:",
+                        "type": "multi",
+                        "selection": ["Don't use a tablet", "Facebook", "Watch Video", "Listen to Music", "Read about tango"]
+                    },
+                    {
+                        "point": "Do you use your computer/laptop to:",
+                        "type": "multi",
+                        "selection": ["Facebook", "Watch Video", "Listen to Music", "Research Tango"]
+                    }
+                ]
            }
+           
     },
     
     "title":    "Tango Synergy Survey",
-    "version":  "0.1.0" ,
-    "date":     "2015-05-27",
+    "version":  "0.2.1" ,
+    "date":     "2015-06-21",
     "author":   "David Wong",
     "id":       "tango-synergy-survey",
-
+    "preface":  [
+        "Thanks for participating in the Tango Synergy Web Development Survey!",
+        "The web developer wants to know more about the considerations and operational objectives of the organisation for the next 12 months.",
+        "This survey to assist in the creation of a digital infrastructure plan for <strong>Tango Synergy</strong>."
+    ],
+    "instructions":  [
+        "You can click on the number inputs or use the <strong>TAB key</strong> to shuffle through each question.",
+        "Reset the question by clicking on the <strong>RESET ANSWERS button</strong>",
+        "Answers are saved to your machine until you submit your answers. Start the survey now, finish later =)",
+        ""
+    ],
 
       "_comment": {
   
          "section-x": {
+             "modified": "2015-06-15",
               "supertitle": "Supertitle",
               "question": "Question",
               "points": [
