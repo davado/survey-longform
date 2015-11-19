@@ -20,7 +20,8 @@
 // app configuration settings
 var appConfig = {
     saveFile: "/savejson.php",
-    questionsManifest: "/assets/data/survey-data.json"
+    questionsManifest: "/assets/data/survey-data.json",
+	resultsFile: "/results.php"
 };
 
 var model = {
@@ -240,7 +241,7 @@ build.form = function(obj){
     var submit, meta, preface;
     
     var form = document.createElement("form");
-    var attr = {id:obj.id, name:obj.id, action:"#", method:"post"};
+    var attr = {id:obj.id, name:obj.id, action:appConfig.resultsFile, method:"post"};
     if ( obj.id !== null || obj.id !== undefined ){
         for (var key in attr ) {
             form.setAttribute(key, attr[key] );
@@ -541,7 +542,7 @@ build.preface = function(obj) {
 
 build.meta = function(obj){
     var meta = document.createElement("div");
-    meta.setAttribute("class", "container");
+    meta.setAttribute("class", "container meta-info");
     var allowed = {"title": true, "version": true, "date": true, "author": true};
     var line, text;
     for (var key in obj) {
