@@ -11,14 +11,51 @@
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap-theme.min.css">
     <link type="application/json" href="assets/data/survey-data.json">
     <style>
+	
+	body {
+		background-color: skyblue;
+	}
+	h1 {
+		margin: 96px 0 24px;
+	}
+	.container {
+	}
+	
+	#preface {
+		background-color: white;
+		padding: 12px;
+		border-radius: 4px;
+		margin-bottom: 12px;
+	}
+	
+	.meta-info {
+		margin: 2em 0;
+	}
+	
+	.meta-info p {
+		color: blue;
+		font-size: 1em;
+		margin: 0;
+		padding: 0;
+		line-height: 1;
+	}
+	
+	.form-group {
+		background-color: white;
+		border-radius: 4px;
+		margin-bottom: 12px;
+	}
+	.form-group>div:last-child {
+		border-radius: 0 0 4px 4px;
+	}
+	
     select,div {display:block;}
     form>select+div, form>div+select, form>div+div{margin-top:1em;}
     
-    form {width: 100%; border:solid 1px #ddd;}
-    .form-group {padding: 1em 0 0; border-bottom: double 3px #ddd;}
+    form {width: 100%;}
+    .form-group {padding: 1em 0 0;}
     
     .sect-point { position: relative; }
-    .sect-point:last-child { padding-bottom: 4em; }
     .point-wrapper { position: absolute; top: 1em; vertical-align: middle;}
     
     .scale>.point-wrapper>label {
