@@ -5,7 +5,19 @@
  */
 
 // read json file.
+?>
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+    strong { color: red; }
+    em {font-variant: italic;}
+    </style>
+</head>
+<body></body>
+</html>
 
+<?php
 function getManifest($path) {
 
   $jsonFile = file_get_contents($path);
@@ -43,11 +55,7 @@ try {
 
     try {
       $statement = getData($db); 
-/*
-      echo "<pre>";
-      var_dump( $statement );
-      echo "</pre>";
-*/
+
       if($statement) {
         printStatement($statement);
       } else {
@@ -77,9 +85,9 @@ function dbLogin() {
   $db = new PDO("mysql:host=$host;dbname=$db_name;charset=$charset", $user, $pass );
   return $db;
 }
-
+//Surveys.Name AS Survey, Surveys.Version AS Version,
 function getData($database) {
-  $select = "SELECT Points.Name, Points.Title, Responses.Text, Responses.Value, count(Responses.Value) AS freq FROM Responses INNER JOIN Points INNER JOIN Surveys ON Responses.Point_ID = Points.ID AND Surveys.ID = Points.Survey_ID GROUP BY Responses.Point_ID";
+  $select = "SELECT Points.Title AS Question, Responses.Value AS Score, count(*) AS Count FROM Responses INNER JOIN Points INNER JOIN Surveys ON Surveys.ID = Points.Survey_ID WHERE Points.Type='scale' AND Responses.Point_ID = Points.ID AND  Surveys.Version = '0.1.0' GROUP BY Score";
   $statement = $database->prepare( $select );
     //"
   $statement->execute();
@@ -98,27 +106,8 @@ function printStatement($stmt) {
   
   $cells = "";
   $rows = ""; 
-  $headers = ""; $thead = "";
-  function wrapRows($row, $head = FALSE) {
-    if ($head === FALSE) {
-      return '<tr>'.$row.'</tr>';
-    } else {
-      return '<thead><tr>'.$row.'</tr></thead>';
-    }
-  }
-  
-  function wraptBody($rows) {
-    return '<tbody>'.$rows.'</tbody>';
-  }
-  
-  function wrapTable($rows) {
-    return '<table>'.$rows.'</table>';
-  }
-  
-  function buildCells($data) {
-    $row = '<td>'.$data.'</td>';
-    return $row;
-  }
+  $headers = ""; 
+  $thead = "";
   
   function wrapElement($tag, $elements) {
     return '<'.$tag.'>'.$elements.'</'.$tag.'>';
@@ -130,7 +119,7 @@ function printStatement($stmt) {
     if ( is_array($element) ) {
       
       foreach( $element as $key => $value ) {
-        echo "<b>$key</b><br />\n";
+        echo "<strong>$key</strong><br />\n";
         if(is_array($value)) {
           // echo "\$value is ARRAY\n";
         }
@@ -143,7 +132,7 @@ function printStatement($stmt) {
     
     } elseif ( is_numeric($element) ) {
       
-      echo '<i>'.$element."</i><br/>\n";
+      echo '<em>'.$element."</em><br/>\n";
     
     } elseif( $element == NULL ) {
       echo "****<br/>";
@@ -154,13 +143,18 @@ function printStatement($stmt) {
 
   
   if($stmt) {
+
+/*
     echo "<pre>";
     var_dump($stmt);
     echo "</pre><br />";
+*/
     
+/*
     $json_str = json_encode($stmt);
     echo $json_str ."<br />";
-    
+*/
+
     unpacka($stmt);
    
        
